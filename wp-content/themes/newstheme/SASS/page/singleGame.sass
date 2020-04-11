@@ -1,0 +1,73 @@
+@import ../abstracts/variery
+@import ../abstracts/extend
+    
+.news-game
+    width: 65%
+    font-family: 'Playfair Display'
+    font-size: map-get($font_size, 'normal')
+    &__path
+        @extend %__div-in-__path
+    &__line
+        display: flex
+        width: 100%
+        flex-flow: row nowrap
+        align-items: center
+        margin-top: 5px
+        div
+            height: 3px
+            width: 100%
+            box-shadow: rgba(black, 0.5) 1px 1px 1px inset, rgba(silver, 0.3) -1px -1px 1px
+    img
+        width: 100%
+        height: inherit
+    h3
+        text-transform: capitalize
+        text-align: center
+        font-size: map-get($font_size, 'large')
+        position: relative
+        &:not(:first-of-type)
+            padding: 10px 0px
+            width: max-content
+            margin: auto auto 15px
+            &::before
+                content: ''
+                position: absolute
+                bottom: 0px
+                height: 2px
+                background-color: black
+                left: 15%
+                right: 15%
+    &__developer
+        span
+            @extend %__spanDiv
+    &__publisher
+        span
+            @extend %__spanDiv
+    &__genre
+        ul
+            display: inline
+            padding: 0px
+        li
+            list-style-type: none
+            display: inline
+            @extend %__spanDiv
+    h4
+        font-size: map-get($font_size, 'medium')
+        position: relative
+        left: 10px
+        &::before
+            content: ''
+            position: absolute
+            top: 0px
+            left: -10px
+            bottom: 0px
+            width: 5px
+            background-color: silver
+    p
+        text-align: justify
+    iframe
+        width: 100%
+    .fa.fa-gamepad
+        &::before
+            position: relative
+            bottom: 3px

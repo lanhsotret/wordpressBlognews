@@ -1,0 +1,33 @@
+@import ../abstracts/variery
+@import ../abstracts/extend
+
+.news-primary
+    width: 65%
+    font-family: 'Roboto'
+    font-size: map-get($font_size, "normal")
+    position: relative
+.news-pagehome
+    +pageGeneral()
+.news-pageanime
+    +pageGeneral()
+.news-pagegame
+    +pageGeneral()
+.news-pagefigure
+    +pageGeneral()
+    &__showImg
+        display: flex
+        width: 100%
+        justify-content: flex-start
+        align-items: center
+        & > figure  
+            height: 100px
+            width: 80px
+            overflow: hidden
+            min-width: 0px
+            &.active
+                border: 2px solid var(--primary)
+            &:not(:last-of-type)
+                margin-right: 5px
+        img
+            width: initial
+            height: 100%

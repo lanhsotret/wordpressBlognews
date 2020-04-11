@@ -1,0 +1,299 @@
+@import ../abstracts/variery
+@import ../abstracts/extend
+
+.news-anime
+    font-family: 'Playfair Display'
+    %__format1
+        h4
+            font-size: map-get($font_size, 'normal')
+            text-transform: uppercase
+            position: relative
+            padding-bottom: 5px
+            width: max-content
+            margin: 20px auto 10px
+            &::after
+                content: ""
+                position: absolute
+                height: 2px
+                bottom: 0px
+                right: -10px
+                left: -10px
+                background-color: black
+        div
+            span:first-of-type
+                font-weight: bold
+                font-family: 'Playfair Display'
+    %__format-figure
+        margin: 0px
+        overflow: hidden
+        display: flex
+        align-items: center
+        justify-content: center
+        img
+            width: 100%
+            height: initial
+    &__path
+        @extend %__div-in-__path
+    &__boardInfo
+        display: flex
+        width: 65%
+        justify-content: space-between
+        font-size: map-get($font_size, 'normal')
+    &__figure
+        width: 200px
+        height: 300px
+        @extend %__format-figure
+    &__alterName
+        font-size: map-get($font_size, "small")
+        @extend %__format1
+    &__info
+        font-size: map-get($font_size, "small")
+        @extend %__format1
+        ul
+            display: inline
+            padding: 0px
+            li
+                list-style-type: none
+                display: inline
+                &:not(:last-of-type)
+                    &::after
+                        content: ","
+    &__music
+        font-size: map-get($font_size, "small")
+        @extend %__format1
+    &__content
+        text-align: justify
+        h3
+            font-size: map-get($font-size, "medium")
+            text-transform: uppercase
+            color: var(--pink)
+            text-align: left
+    &__cast
+        & > h4
+            font-size: map-get($font_size, 'normal')
+            text-transform: uppercase
+            position: relative
+            padding-bottom: 5px
+            margin: 0px auto 10px
+            &::after
+                content: ""
+                position: absolute
+                height: 2px
+                bottom: 0px
+                right: 0px
+                left: 0px
+                background-color: black
+    &__actor
+        width: 100%
+        display: flex
+        justify-content: flex-start
+        padding: 10px
+        border-radius: 5px
+        &:nth-of-type(odd)
+            background-color: rgba(pink, 0.4)
+        & > figure
+            width: 140px
+            min-width: 40px
+            height: 140px
+            @extend %__format-figure
+        h4
+            font-size: map-get($font_size, 'normal')
+            margin-left: 5px
+        & > div
+            display: flex
+            width: 100%
+            flex-flow: column nowrap
+            justify-content: space-between
+        p
+            margin: auto auto 10px 5px
+            width: 100%
+            padding-bottom: 5px
+            font-size: map-get($font_size, 'very-small')
+            position: relative
+            &::after
+                content: ""
+                position: absolute
+                height: 1px
+                bottom: 0px
+                right: 0px
+                left: 0px
+                background-color: black
+    &__child
+        display: flex
+        width: 100%
+        flex-flow: row nowrap
+        justify-content: flex-end
+        h4
+            font-size: map-get($font_size, 'small')
+            margin-right: 5px
+            text-align: right
+        figure
+            width: 50px
+            min-width: 20px
+            height: 70px
+            @extend %__format-figure
+    %__formath4
+        font-size: map-get($font_size, "medium")
+        text-transform: uppercase
+        position: relative
+        left: 15px
+        margin: 10px auto
+        &::after
+            content: ""
+            position: absolute
+            top: 0px
+            bottom: 0px
+            left: -15px
+            width: 10px
+            background-color: gray
+    &__trailer
+        width: 65%
+        overflow: hidden
+        h4
+            @extend %__formath4
+    &__playVideo
+        position: relative
+        width: 100%
+        padding-top: calc(100% * 9 / 16)
+        iframe
+            top: 0px
+            right: 0px
+            bottom: 0px
+            left: 0px
+            position: absolute
+            width: 100%
+            height: 100%
+    &__iframeParent
+        width: 100%
+        display: flex
+        justify-content: flex-start
+        align-items: center
+        position: relative
+        & > div:not(:last-of-type)
+            margin-right: 10px
+        button
+            visibility: hidden
+            opacity: 0
+            position: absolute
+            box-shadow: rgba(white, 0.7) 0px 3px 5px, rgba(white, 0.7) 0px -3px 5px, rgba(white, 0.7) -3px 0px 5px, rgba(white, 0.7) 3px 0px 5px
+            border: none
+            border-radius: 3px
+            height: 35px
+            width: 25px
+            background-color: rgba(silver, 0.6)
+            transition: opacity 0.3s ease
+            a
+                display: block
+                position: absolute
+                z-index: 0
+                top: 0px
+                bottom: 0px
+                right: 0px
+                left: 0px
+                margin: 5px 0px
+                &::after
+                    content: ''
+                    position: absolute
+                    top: 0px
+                    left: 25%
+                    transform: rotate(30deg)
+                    transform-origin: left bottom
+                    height: 50%
+                    width: 3px
+                    z-index: -2
+                    background-color: white
+                    transition: transform 0.3s ease
+                &::before
+                    content: ''
+                    position: absolute
+                    bottom: 0px
+                    left: 25%
+                    transform: rotate(-30deg)
+                    transform-origin: left top
+                    height: 50%
+                    width: 3px
+                    z-index: -2
+                    background-color: white
+                    transition: transform 0.3s ease
+            &:first-of-type
+                left: 5px
+            &:last-of-type
+                right: 5px
+                a
+                    transform: rotate(180deg)
+                    transform-origin: center center
+            &.active
+                background-color: var(--primary)
+                &:hover
+                    a
+                        &::after
+                            transform: rotate(45deg)
+                        &::before
+                            transform: rotate(-45deg)
+        &:hover
+            button
+                visibility: visible
+                opacity: 1
+
+    &__iframe
+        position: relative
+        min-width: calc((100% - 30px)/4)
+        padding-top: calc((100% * 9 / 16)/4 - 10px)
+        margin-bottom: 5px
+        z-index: 0
+        overflow: hidden
+        &::after
+            content: ''
+            position: absolute
+            top: 0px
+            bottom: 0px
+            right: 0px
+            left: 0px
+            background-color: rgba(black, 0.4)
+            z-index: 1
+        &:hover
+            &::after
+                background-color: transparent
+                cursor: pointer
+        &.active
+            &::after
+                border: 2px solid var(--pink)
+                background-color: transparent
+                border: 2px solid var(--pink)
+        iframe
+            top: 50%
+            left: 50%
+            position: absolute
+            z-index: -2
+            width: initial
+            height: initial
+            transform: translate(-50%, -50%) scale(0.56)
+    &__watch
+        @extend %__inherit
+    %__inherit
+        display: flex
+        flex-flow: row nowrap
+        justify-content: flex-start
+        width: 65%
+        align-items: baseline
+        h4
+            font-size: map-get($font_size, "medium")
+            text-transform: uppercase
+            position: relative
+            left: 15px
+            margin: 5px 0px 5px
+            &::after
+                content: ""
+                position: absolute
+                top: 0px
+                bottom: 0px
+                left: -15px
+                width: 10px
+                background-color: gray
+        a
+            text-decoration: none
+            font-size: map-get($font_size, small)
+            text-transform: uppercase
+            margin-left: 30px
+    &__source
+        @extend %__inherit
